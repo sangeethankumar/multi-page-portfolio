@@ -79,16 +79,10 @@ jobs:
             hugo-
       - name: Build the site
         run: |
-          START_TIME=$(date +%s)
-
           hugo \
             --gc \
-            --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
-          END_TIME=$(date +%s)
-          DURATION=$((END_TIME - START_TIME))
-          echo "Build completed in: ${DURATION} seconds"
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
