@@ -18,7 +18,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
       
-      # STUDENTS ADD STEPS HERE
+      # ADD STEPS HERE
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
   
   deploy:
     needs: build
